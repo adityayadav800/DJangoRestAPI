@@ -21,5 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^calc/?$',views.calc),
-
+    path('',views.home),
 ]

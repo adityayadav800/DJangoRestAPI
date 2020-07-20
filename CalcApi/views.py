@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -40,5 +40,9 @@ def calc(request):
     		if(operation=='*'):
     			result=first_number*second_number
     		return JsonResponse({"result":result})
-    except ValueError as e:
+    except Exception as e:
     	return Response(e.args[0],status.HTTP_400_BAD_REQUEST)
+
+
+def home(request):
+    return HttpResponse("<h1> Go To <a href=\"calc\">adityayadav800.pythonanywhere.com/calc</a><h1>")
